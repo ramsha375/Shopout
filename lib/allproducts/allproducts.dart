@@ -22,20 +22,5 @@ class AllProducts extends StatelessWidget {
                     name: pdts[i].name,
                     img: pdts[i].img,
                     price: pdts[i].price))));
-
-    // return GridView.builder(
-    //     physics: ScrollPhysics(),
-    //     gridDelegate:
-    //         SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-    //     itemBuilder: (ctx, i) {
-    //       return Column(
-    //         children: [
-    //           ChangeNotifierProvider.value(
-    //             value: pdts[i],
-    //             child: ProductItem(name: pdts[i].name, imgname: pdts[i].img),
-    //           ),
-    //         ],
-    //       );
-    //     });
   }
 }
