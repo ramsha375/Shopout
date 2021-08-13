@@ -10,17 +10,12 @@ class AllProducts extends StatelessWidget {
     final productData = Provider.of<Products>(context);
     final pdts = productData.items;
 
-    return GridView.count(
-        scrollDirection: Axis.vertical,
-        crossAxisCount: 2,
-        crossAxisSpacing: 2,
-        children: List.generate(
-            pdts.length,
-            (i) => ChangeNotifierProvider.value(
-                value: pdts[i],
-                child: ProductItem(
-                    name: pdts[i].name,
-                    img: pdts[i].img,
-                    price: pdts[i].price))));
+    return ListView.builder(
+        itemCount: pdts.length,
+        itemBuilder: (ctx, i) => ChangeNotifierProvider.value(
+              value: pdts[i],
+              child: ProductItem(
+                  name: pdts[i].name, img: pdts[i].img, price: pdts[i].price),
+            ));
   }
 }

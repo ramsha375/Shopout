@@ -18,7 +18,6 @@ class CartItem {
 
 class Cart with ChangeNotifier {
   Map<String, CartItem> _items = {};
-  //print(CartItem['name']);
   Map<String, CartItem> get items {
     return {..._items};
   }
@@ -30,7 +29,6 @@ class Cart with ChangeNotifier {
   void addItem(String id, String name, String img, int price) {
     if (_items.containsKey(id)) {
       _items.update(
-        //pdtid
         id,
         (existingCartItem) => CartItem(
           id: existingCartItem.id,
@@ -46,6 +44,32 @@ class Cart with ChangeNotifier {
           () => CartItem(
               id: id, name: name, quantity: 1, img: img, price: price));
     }
+    notifyListeners();
+  }
+
+  void removeSingleItem(String id, int price) {
+    if (!_items.containsKey(id)) {
+      return;
+    }
+    if (_items[id].quantity > 0) {
+      _items.update(
+          id,
+          (existingCartItem) => CartItem(
+                id: id,
+                img: existingCartItem.img,
+                name: existingCartItem.name,
+                quantity: existingCartItem.quantity - 1,
+                price: price * (existingCartItem.quantity - 1),
+              ));
+    }
+    if (_items[id].quantity == 0) {
+      _items.remove(id);
+    }
+    notifyListeners();
+  }
+
+  void removeItem(String id, int price) {
+    _items.remove(id);
     notifyListeners();
   }
 }

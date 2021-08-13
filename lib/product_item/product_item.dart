@@ -15,22 +15,26 @@ class ProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final pdt = Provider.of<Product>(context);
     final cart = Provider.of<Cart>(context);
-    return Padding(
-      padding: const EdgeInsets.all(15.0),
-      child: GridTile(
-        child: Image.asset(img),
-        footer: GridTileBar(
-          title: Center(
-              child: Column(
-            children: [Text(name), Text('Price: $price')],
-          )),
-          trailing: IconButton(
-            icon: Icon(Icons.shopping_cart),
-            onPressed: () {
-              cart.addItem(pdt.id, pdt.name, pdt.img, pdt.price);
-            },
-          ),
-          backgroundColor: Colors.deepPurple[400],
+    return Card(
+      child: ListTile(
+        contentPadding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+        leading: Image.asset(
+          img,
+          height: 144.0,
+        ),
+        title: Text(
+          name,
+          style: Theme.of(context).textTheme.headline2,
+        ),
+        subtitle: Text(
+          'Price: $price',
+          style: Theme.of(context).textTheme.headline3,
+        ),
+        trailing: IconButton(
+          icon: Icon(Icons.add_shopping_cart),
+          onPressed: () {
+            cart.addItem(pdt.id, pdt.name, pdt.img, pdt.price);
+          },
         ),
       ),
     );

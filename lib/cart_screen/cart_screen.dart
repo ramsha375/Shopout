@@ -23,7 +23,6 @@ class CartScreen extends StatelessWidget {
             ),
           ],
         ),
-        // leading: Icon(Icons.shopping_cart),
       ),
       body: Column(
         children: <Widget>[
@@ -36,7 +35,17 @@ class CartScreen extends StatelessWidget {
                     cart.items.values.toList()[i].quantity.toString(),
                     cart.items.values.toList()[i].img,
                     cart.items.values.toList()[i].price)),
-          )
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: RaisedButton(
+              onPressed: () {},
+              child: const Text('Check out', style: TextStyle(fontSize: 20)),
+              color: Colors.deepPurple[400],
+              textColor: Colors.white,
+              elevation: 5,
+            ),
+          ),
         ],
       ),
     );
