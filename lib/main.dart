@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider.value(
           value: Cart(),
-        )
+        ),
       ],
       child: MaterialApp(
         title: 'Shopping App ',
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           accentColor: Colors.white,
           textTheme: const TextTheme(
             headline1: TextStyle(
-                fontSize: 36.0,
+                fontSize: 18.0,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Merriweather',
                 color: Colors.deepPurple),
@@ -39,6 +39,16 @@ class MyApp extends StatelessWidget {
                 fontFamily: 'Merriweather'),
             headline3: TextStyle(
                 fontSize: 14.0, color: Colors.grey, fontFamily: 'Merriweather'),
+            headline4: TextStyle(
+                fontSize: 16.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.grey,
+                fontFamily: 'Merriweather'),
+            headline5: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'Merriweather',
+                color: Colors.white),
             bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Merriweather'),
           ),
         ),

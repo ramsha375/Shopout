@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../update_item/update_item.dart';
 
 class CartItem {
   final String id;
@@ -17,6 +18,7 @@ class CartItem {
 }
 
 class Cart with ChangeNotifier {
+  int total = 0;
   Map<String, CartItem> _items = {};
   Map<String, CartItem> get items {
     return {..._items};
@@ -24,6 +26,10 @@ class Cart with ChangeNotifier {
 
   int get itemCount {
     return _items.length;
+  }
+
+  CartItem findById(String name) {
+    return _items[name];
   }
 
   void addItem(String id, String name, String img, int price) {

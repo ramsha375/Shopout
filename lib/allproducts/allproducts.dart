@@ -15,7 +15,12 @@ class AllProducts extends StatelessWidget {
         itemBuilder: (ctx, i) => ChangeNotifierProvider.value(
               value: pdts[i],
               child: ProductItem(
-                  name: pdts[i].name, img: pdts[i].img, price: pdts[i].price),
+                name: pdts[i].name,
+                img: pdts[i].img,
+                id: pdts[i].id,
+                price: pdts[i].price,
+                quantity: pdts[i].quantity,
+              ),
             ));
   }
 }
